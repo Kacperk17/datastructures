@@ -14,8 +14,8 @@ import java.util.*;
 
 public class Wordle {
 
-    //String fileName = "wordle/resources/dictionary.txt";
-    String fileName = "wordle/resources/extended-dictionary.txt";
+    String fileName = "wordle/resources/dictionary.txt";
+    //String fileName = "wordle/resources/extended-dictionary.txt";
     static List<String> dictionary = null;
     final int num_guesses = 5;
     final long seed = 42;
@@ -56,7 +56,7 @@ public class Wordle {
 
         //System.out.println("target: " + target);
 
-        //game.play(target);
+        game.play("irony");
 
         LinkedBinaryTree<Character> tree = game.huffman(dictionaryToString());
 
@@ -85,8 +85,7 @@ public class Wordle {
     }
 
     public void play(String target) {
-        // TODO
-        // TODO: You have to fill in the code
+
         for(int i = 0; i < num_guesses; ++i) {
             String guess = getGuess();
 
@@ -186,7 +185,6 @@ public class Wordle {
 
         int length = x.length();
 
-        //Comparator<Integer> integerComparator = Comparator.comparing(Integer::byteValue);
 
         HashMap<Character, Integer> charFrequency = getFrequency(x);
         HeapPriorityQueue<Integer, LinkedBinaryTree> queue = new HeapPriorityQueue<Integer, LinkedBinaryTree>();
@@ -518,7 +516,6 @@ public class Wordle {
         // java.util hashmap
         HashMap<Character, Integer> frequencyOfEachLetter = getFrequency(dictionaryToString());
         HashMap<String, Integer> possible_words = getSumOfFrequencyOfLettersInWord(frequencyOfEachLetter);
-
 
 
         // chainhashmap
